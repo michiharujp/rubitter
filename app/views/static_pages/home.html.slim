@@ -1,0 +1,18 @@
+- provide(:title, "Home")
+- if logged_in?
+  div.row
+    aside.col-md-4
+      section.user_info
+        = render 'shared/user_info'
+      section.stats
+        = render 'shared/stats'
+      section.micropost_form
+        = render 'shared/micropost_form'
+    div.col-md-8
+      h3 投稿一覧
+      = render 'shared/feed'
+- else
+  div.center.jumbotron
+    h1 ようこそTwitter on Railsへ!!
+    p お気に入りの相手をフォローしてユビキタス社会にを実感しよう!
+    = link_to "登録する", signup_path, class: "btn btn-lg btn-primary"
