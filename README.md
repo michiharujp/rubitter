@@ -1,24 +1,19 @@
-# README
+# railsで作った日常をつぶやくアプリケーションです
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 機能要求
+- ログインできる
+- フォローできる
+- フォローしているユーザーのつぶやきだけ見える
+- 投稿できる
+- 返信
+- 画像が添付できる
+- bootstrapでレイアウトを整える
 
-Things you may want to cover:
+### スタイルシート
+- scss
 
-* Ruby version
+### js
+- jQuery
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### html
+- slim
