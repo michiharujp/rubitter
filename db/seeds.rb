@@ -7,7 +7,7 @@ User.create!(name:  "畑澤遥栄",
              activated_at: Time.zone.now)
 
 100.times do |n|
-  name  = Faker::Name.name
+  name  = Gimei.name.kanji
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(name:  name,
@@ -20,7 +20,7 @@ end
 
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.sentence(5)
+  content = Gimei.address.kanji
   users.each { |user| user.microposts.create!(content: content) }
 end
 
