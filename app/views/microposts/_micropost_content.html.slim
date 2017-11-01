@@ -6,12 +6,12 @@ span.content
 span.timestamp
   = time_ago_in_words micropost.created_at
   |  ago
-div.status
+.status
   - if current_user == micropost.user
-    div.icon.delete
+    .icon.delete
       = link_to( micropost, method: :delete, data: { confirm: "本当に削除しますか？" } ) do
         i.fa.fa-close
-  div.icon.reply
+  .icon.reply
     i.fa.fa-reply
     - if micropost.replies.any?
       = micropost.replies.count

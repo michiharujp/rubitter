@@ -7,10 +7,10 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    div.container
+    .container
       |
       - flash.each do |message_type, message|
-        div.alert class="alert-#{message_type}" = message
+        .alert class="alert-#{message_type}" = message
       = render 'layouts/header'
       = yield
       = render 'layouts/footer'

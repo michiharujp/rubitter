@@ -1,5 +1,5 @@
 - provide(:title, @user.name)
-div.row
+.row
   aside.col-md-4
     section.user_info
       h1
@@ -7,7 +7,7 @@ div.row
         = @user.name
     section.stats
       = render 'shared/stats'
-  div.col-md-8
+  .col-md-8
     = render 'follow_form' if logged_in?
     - if @user.microposts.any?
       h3 = "投稿数 (#{@user.microposts.count})"

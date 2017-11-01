@@ -1,11 +1,11 @@
 div.modal.fade id="modal-#{micropost.id}"
-  div.modal-dialog
-    div.modal-content
-      div.modal-body
+  .modal-dialog
+    .modal-content
+      .modal-body
         = render 'microposts/micropost_content', micropost: micropost
         = form_for(micropost.microposts.build) do |f|
           = render 'shared/error_messages', object: f.object
-          div.field
+          .field
             = f.text_area :content, placeholder: "返信する"
           = f.submit "投稿", class: "btn btn-primary"
           span.picture
