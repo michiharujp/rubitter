@@ -8,14 +8,14 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
-    if @user
+    if @user.present?
       @user.create_reset_digest
       @user.send_password_reset_email
       flash[:info] = "パスワード再設定のためのメールを送信しました"
       redirect_to root_url
     else
       flash.now[:danger] = "そのようなメールアドレスは存在しません"
-      render 'new'
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class PasswordResetsController < ApplicationController
       flash[:success] = "パスワードは正しく再設定されました"
       redirect_to @user
     else
-      render 'edit'
+      render :edit
     end
   end
 

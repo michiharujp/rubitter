@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :is_correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
   def index
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       #flash[:success] = "ようこそtwitterへ！"
       #redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       flash[:success] = "変更に成功しました"
       redirect_to @user
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -66,21 +66,19 @@ class UsersController < ApplicationController
   end
 
   private
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
+    # before アクション
 
-  # before アクション
+    # 正しいユーザーかどうか判定
+    def is_correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 
-  # 正しいユーザーかどうか判定
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
-
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end
