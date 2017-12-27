@@ -1,0 +1,4 @@
+li id="micropost-#{micropost.id}" data-toggle="modal" data-target="#modal-#{micropost.id}"
+  = render 'microposts/micropost_content', micropost: micropost
+
+= render 'microposts/modal', micropost: micropost

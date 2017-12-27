@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
-$waseda: #9B2121;
+$danger: #A94442;
+$info: #3C763D;
 
 body {
   padding-top: 60px;
@@ -66,6 +68,11 @@ aside {
       margin-top: 0px;
     }
   }
+}
+
+.app-title {
+  color: white;
+  font-size: 32px;
 }
 
 .gravatar {
@@ -194,6 +201,34 @@ input {
     color: $gray-light;
     display: block;
     margin-left: 60px;
+  }
+  .status {
+    color: $gray-light;
+    display: flex;
+    margin-left: 60px;
+    .icon {
+      width: 30px;
+      cursor: pointer;
+      i {
+        font-size: 20px;
+        color: $gray-light;
+      }
+    }
+    .delete:hover {
+      i {
+        color: $danger;
+      }
+    }
+    .reply {
+      i {
+        padding-top: 2px;
+        padding-right: 2px;
+        font-size: 18px;
+      }
+      &:hover i {
+        color: $info;
+      }
+    }
   }
   .gravatar {
     float: left;
